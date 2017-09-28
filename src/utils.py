@@ -18,9 +18,9 @@ class Executer(object):
             return True
 
 
-class MLPD(object):
+class MLPDParser(object):
 
-    def __init__(self, output_path, mprof_path, cache_file=None):
+    def __init__(self, output_path, mprof_path, cache_file=''):
         self.cache_file = cache_file
         self.output_path = output_path
         self.mprof_path = mprof_path
@@ -35,7 +35,7 @@ class MLPD(object):
         return custom_list
 
     def get_data(self):
-        if self.cache_file is None:
+        if self.cache_file is '':
             cmd = [self.mprof_path, self.output_path]
             text = ''
             with open("src.txt", "w") as src_file:
